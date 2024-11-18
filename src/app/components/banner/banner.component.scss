@@ -1,15 +1,18 @@
 .banner {
   width: 100%;
+  height: calc(100dvh - 50px);
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   font-family: "Kode Mono", monospace;
   font-optical-sizing: auto;
   color: aliceblue;
   padding: 50px;
   font-size: larger;
   gap: 20px;
+  opacity: 0;
+  animation: drop 0.4s linear forwards;
 
   .profileAvatar {
     width: 256px;
@@ -54,6 +57,10 @@
     }
 
     h2 {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      text-align: center;
       background: #a7acd0;
       background: linear-gradient(
         to right,
@@ -64,6 +71,72 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      width: 0;
+      animation: expand 1s forwards;
+      height: 50px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &::after {
+        height: 25px;
+        width: 2px;
+
+        content: "";
+        display: inline-block;
+        margin-left: 3px;
+        background-color: white;
+        animation-name: blink-dot;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+      }
     }
+  }
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(-200px) scaleY(0.9);
+  }
+  5% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 1;
+  }
+  65% {
+    transform: translateY(-17px) scaleY(0.9);
+  }
+  75% {
+    transform: translateY(-22px) scaleY(0.9);
+  }
+  100% {
+    transform: translateY(0px) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes blink-dot {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }
