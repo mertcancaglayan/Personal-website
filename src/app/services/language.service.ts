@@ -4,17 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LanguageService {
-  language: string = 'EN'; 
+  language: string = 'english';
 
   constructor() {}
 
   setLanguage(lang: string): void {
-    this.language = lang;
-    console.log(this.language);
-    
-  }
-
-  getLanguage(): string {
-    return this.language;
+    localStorage.setItem('lang1', lang);
   }
 }

@@ -18,8 +18,9 @@ export class NavbarComponent {
 
   changeLanguage(lang: string): void {
     this.languageService.setLanguage(lang);
+    window.location.reload();
   }
-
+  
   @ViewChild('navbar') navbarElement!: ElementRef;
 
   onMouseMove(event: MouseEvent): void {

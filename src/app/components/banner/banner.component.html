@@ -1,17 +1,12 @@
 <div class="banner">
   <div class="profileAvatar">
-    <img
-      src="https://avatars.githubusercontent.com/u/118301620?v=4"
-      alt="Profile Avatar"
-    />
+    <img [src]="profileData.profile.avatar" alt="Profile Avatar" />
   </div>
   <div class="context">
-    <h1>Mert Can Caglayan</h1>
+    <h1>{{ profileData.profile.about[selectedLanguage].name }}</h1>
     <h2>FrontEnd Developer</h2>
     <p>
-      I am currently looking to pursue a career in front-end development. I have
-      fundamental skills in HTML, CSS, and JavaScript, and I possess knowledge
-      of Typescript, React, Angular and Python.
+      {{ profileData.profile.about[selectedLanguage].article }}
     </p>
 
     <button class="contact-button">Contact Me</button>
