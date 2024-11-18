@@ -1,0 +1,13 @@
+<div class="skills-container">
+  <h2>Skills</h2>
+  <ul class="skillCards">
+    <li class="skillCard" *ngFor="let skill of skills">
+      <div class="card-img">
+        <img [src]="skill.logo" alt="skill-logo" />
+      </div>
+      <p class="skill-name">
+        {{ skill.skill }}
+      </p>
+    </li>
+  </ul>
+</div>
