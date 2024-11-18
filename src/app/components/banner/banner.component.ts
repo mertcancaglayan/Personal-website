@@ -18,7 +18,6 @@ export class BannerComponent implements OnInit, OnChanges {
 
   constructor(
     private apiService: ApiService,
-    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
