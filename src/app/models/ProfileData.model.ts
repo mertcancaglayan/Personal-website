@@ -36,6 +36,7 @@ export interface Projects {
   angularProjects: Project[];
   reactProjects: Project[];
   javascriptProjects: Project[];
+  componentProjects: Project[];
 }
 
 export interface Project {
