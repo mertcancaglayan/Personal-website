@@ -21,6 +21,13 @@
         *ngTemplateOutlet="projectTemplate; context: { project: project }"
       ></ng-container>
     </ng-container>
+
+    <ng-container *ngFor="let project of projectsData.componentProjects">
+      <ng-container
+        *ngTemplateOutlet="projectTemplate; context: { project: project }"
+      ></ng-container>
+    </ng-container>
+
   </div>
 </div>
 
