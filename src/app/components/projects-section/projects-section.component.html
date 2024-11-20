@@ -1,0 +1,56 @@
+<div class="projects-section-container">
+  <h1>Portfolio</h1>
+  <div class="portfolio-grid">
+    <!-- Angular Projects -->
+    <ng-container *ngFor="let project of projectsData.angularProjects">
+      <ng-container
+        *ngTemplateOutlet="projectTemplate; context: { project: project }"
+      ></ng-container>
+    </ng-container>
+
+    <!-- React Projects -->
+    <ng-container *ngFor="let project of projectsData.reactProjects">
+      <ng-container
+        *ngTemplateOutlet="projectTemplate; context: { project: project }"
+      ></ng-container>
+    </ng-container>
+
+    <!-- JavaScript Projects -->
+    <ng-container *ngFor="let project of projectsData.javascriptProjects">
+      <ng-container
+        *ngTemplateOutlet="projectTemplate; context: { project: project }"
+      ></ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #projectTemplate let-project="project">
+  <div class="portfolio-item">
+    <img [src]="project.previewImages[0]" [alt]="project.name" />
+    <div class="overlay">
+      <h3>{{ project.name }}</h3>
+      <p>
+        <a [href]="project.repo" target="_blank">View Repo</a>
+        <span *ngIf="project.liveDemo">
+          | <a [href]="project.liveDemo" target="_blank">Live Demo</a>
+        </span>
+      </p>
+      <ng-container
+        *ngTemplateOutlet="
+          expertiseTemple;
+          context: { expertises: project.expertise }
+        "
+      >
+      </ng-container>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #expertiseTemple let-expertises="expertises">
+  <ul class="usedExpertise">
+    <li *ngFor="let expertise of expertises">
+      <img [src]="expertise.logo" alt="{{ expertise.skill }} logo" width="20" />
+      {{ expertise.skill }}
+    </li>
+  </ul>
+</ng-template>

@@ -3,7 +3,7 @@ export type Root = ProfileData[];
 export interface ProfileData {
   profile: Profile;
   expertise: Expertise[];
-  projects: any[];
+  projects: Projects;
   id: string;
 }
 
@@ -30,4 +30,18 @@ export interface Turkish {
 export interface Expertise {
   skill: string;
   logo: string;
+}
+
+export interface Projects {
+  angularProjects: Project[];
+  reactProjects: Project[];
+  javascriptProjects: Project[];
+}
+
+export interface Project {
+  name: string;
+  repo: string;
+  liveDemo?: string;
+  previewImages: string[];
+  expertise: Expertise[];
 }
