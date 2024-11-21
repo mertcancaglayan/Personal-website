@@ -1,7 +1,7 @@
 .projects-section-container {
   height: auto;
   overflow: hidden;
-  padding: 50px;
+  padding: 75px 50px 50px;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -67,8 +67,8 @@
         font-size: 14px;
         margin: 10px 0;
         a {
-            color: white;
-            text-decoration: none;
+          color: white;
+          text-decoration: none;
         }
       }
 
