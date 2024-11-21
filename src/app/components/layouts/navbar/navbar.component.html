@@ -5,23 +5,30 @@
       (mouseover)="onItemHover(true)"
       (mouseout)="onItemHover(false)"
     >
-      Mert Can Çağlayan
+      MCÇ
     </h2>
   </div>
   <div class="navSection" id="navCategory">
     <a
-      href="#"
       class="navItem"
+      (click)="scrollTo('banner')"
       (mouseover)="onItemHover(true)"
       (mouseout)="onItemHover(false)"
       >ABOUT</a
     >
     <a
-      href="#"
       class="navItem"
+      (click)="scrollTo('skills')"
       (mouseover)="onItemHover(true)"
       (mouseout)="onItemHover(false)"
-      >WORK</a
+      >SKILLS</a
+    >
+    <a
+      class="navItem"
+      (click)="scrollTo('projects')"
+      (mouseover)="onItemHover(true)"
+      (mouseout)="onItemHover(false)"
+      >PROJECTS</a
     >
   </div>
   <div class="navSection" id="navSocials">

@@ -6,7 +6,7 @@ section {
   height: 100dvh;
 
   &.bannerSection {
-    height: calc(100dvh - 50px);
+    height: calc(100dvh + 50px);
   }
 
   &.projectSection {

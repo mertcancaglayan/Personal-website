@@ -5,6 +5,11 @@ nav {
   color: #fff;
   cursor: none;
   height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: var(--background-color);
 
   .navSection {
     display: flex;
@@ -71,6 +76,7 @@ nav {
   mix-blend-mode: difference;
   box-shadow: 0px 0px 5px 3px rgba(255, 255, 255, 1);
   will-change: transform, left, top;
+  z-index: 1001;
 
   @media screen and (max-width: 550px) {
     width: 10px;

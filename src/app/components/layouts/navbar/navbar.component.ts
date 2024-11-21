@@ -1,9 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
+  imports: [RouterLink],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
@@ -20,7 +22,7 @@ export class NavbarComponent {
     this.languageService.setLanguage(lang);
     window.location.reload();
   }
-  
+
   @ViewChild('navbar') navbarElement!: ElementRef;
 
   onMouseMove(event: MouseEvent): void {
@@ -44,5 +46,12 @@ export class NavbarComponent {
 
   onItemHover(isHovering: boolean): void {
     this.scale = isHovering ? 'scale(2)' : 'scale(1)';
+  }
+
+  scrollTo(id: string): void {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
