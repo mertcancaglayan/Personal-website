@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Profile, ProfileData, Root } from '../models/ProfileData.model';
+import { PersonalInfo, ProfileData } from '../models/ProfileData.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  getData(): Observable<Root> {
-    return this.http.get<Root>(this.apiUrl);
+  getData(): Observable<ProfileData> {
+    return this.http.get<ProfileData>(this.apiUrl);
   }
 }

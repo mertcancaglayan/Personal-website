@@ -1,16 +1,18 @@
 <app-navbar></app-navbar>
 <main>
   <section id="banner" class="bannerSection">
-    <app-banner></app-banner>
+    <app-banner [personalInfo]="personalInfo"></app-banner>
   </section>
   <hr />
   <section id="skills">
-    <app-skills-section></app-skills-section>
+    <app-skills-section [skills]="skills"></app-skills-section>
   </section>
   <hr />
   <section id="projects" class="projectSection">
     <article>
-      <app-projects-section></app-projects-section>
+      <app-projects-section
+        [projectsData]="projectsData"
+      ></app-projects-section>
     </article>
   </section>
 </main>

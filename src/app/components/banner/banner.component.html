@@ -1,12 +1,14 @@
-<div class="banner">
-  <div class="profileAvatar">
-    <img [src]="profileData.profile.avatar" alt="Profile Avatar" />
+<div class="banner" *ngIf="personalInfo">
+  <div class="profileAvatar" *ngIf="personalInfo.avatar">
+    <img [src]="personalInfo.avatar" alt="Profile Avatar" />
   </div>
   <div class="context">
-    <h1>{{ profileData.profile.about[selectedLanguage].name }}</h1>
+    <h1>
+      {{ personalInfo.about[selectedLanguage].name }}
+    </h1>
     <h2 class="description">FrontEnd Developer</h2>
-    <p>
-      {{ profileData.profile.about[selectedLanguage].article }}
+    <p *ngIf="personalInfo.about[selectedLanguage]?.article">
+      {{ personalInfo.about[selectedLanguage].article }}
     </p>
 
     <button class="contact-button">Contact Me</button>
