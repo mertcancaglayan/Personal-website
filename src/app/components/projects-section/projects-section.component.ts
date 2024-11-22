@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Projects, Root } from '../../models/ProfileData.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { Projects } from '../../models/ProfileData.model';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,22 +11,7 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./projects-section.component.scss'],
 })
 export class ProjectsSectionComponent implements OnInit {
-  data!: Root;
-  projectsData!: Projects;
+  @Input() projectsData?: Projects;
 
-  constructor(private apiService: ApiService) {}
-
-  ngOnInit(): void {
-    this.getProjectsData();
-    console.log(this.projectsData);
-  }
-
-  getProjectsData() {
-    this.apiService.getData().subscribe((res) => {
-      this.data = res;
-      if (this.data && this.data.length > 0) {
-        this.projectsData = this.data[0].projects;
-      }
-    });
-  }
+  ngOnInit(): void {}
 }

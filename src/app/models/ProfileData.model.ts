@@ -1,13 +1,17 @@
-export type Root = ProfileData[];
-
 export interface ProfileData {
-  profile: Profile;
+  profile: Profile[];
+  loading: boolean;
+  error: any;
+}
+
+export interface Profile {
+  personalInfo: PersonalInfo;
   expertise: Expertise[];
   projects: Projects;
   id: string;
 }
 
-export interface Profile {
+export interface PersonalInfo {
   about: About;
   avatar: string;
 }

@@ -2,32 +2,31 @@
   <h1>Portfolio</h1>
   <div class="portfolio-grid">
     <!-- Angular Projects -->
-    <ng-container *ngFor="let project of projectsData.angularProjects">
+    <ng-container *ngFor="let project of projectsData?.angularProjects">
       <ng-container
         *ngTemplateOutlet="projectTemplate; context: { project: project }"
       ></ng-container>
     </ng-container>
 
     <!-- React Projects -->
-    <ng-container *ngFor="let project of projectsData.reactProjects">
+    <ng-container *ngFor="let project of projectsData?.reactProjects">
       <ng-container
         *ngTemplateOutlet="projectTemplate; context: { project: project }"
       ></ng-container>
     </ng-container>
 
     <!-- JavaScript Projects -->
-    <ng-container *ngFor="let project of projectsData.javascriptProjects">
+    <ng-container *ngFor="let project of projectsData?.javascriptProjects">
       <ng-container
         *ngTemplateOutlet="projectTemplate; context: { project: project }"
       ></ng-container>
     </ng-container>
 
-    <ng-container *ngFor="let project of projectsData.componentProjects">
+    <ng-container *ngFor="let project of projectsData?.componentProjects">
       <ng-container
         *ngTemplateOutlet="projectTemplate; context: { project: project }"
       ></ng-container>
     </ng-container>
-
   </div>
 </div>
 
