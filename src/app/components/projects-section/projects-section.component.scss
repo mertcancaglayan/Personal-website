@@ -11,7 +11,6 @@
   color: aliceblue;
   min-height: 100dvh;
 
-
   h1 {
     margin-top: 20px;
     font-size: 36px;
@@ -32,22 +31,29 @@
       justify-content: center;
       width: 100%;
 
+      .title-area {
+        h4 {
+          text-transform: capitalize;
+        }
+      }
+
       .portfolio-items {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: calc((var(--card-width) * 3) + var(--item-gap) * 2);
+        max-width: calc((var(--card-width) * 3) + var(--item-gap) * 2);
         flex-wrap: wrap;
+        gap: var(--item-gap);
       }
 
       .portfolio-item {
         position: relative;
-        width: 384px;
-        max-width: 384px;
+        width: var(--card-width);
+        max-width: var(--card-width);
         aspect-ratio: 1;
         border-radius: 10px;
         overflow: hidden;
-        margin: 10px;
         cursor: pointer;
 
         img {
