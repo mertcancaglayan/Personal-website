@@ -1,37 +1,30 @@
 <div class="projects-section-container">
-  <h1>Portfolio</h1>
+  <h1 class="appear-item">Portfolio</h1>
   <div class="portfolio-grid">
-    <!-- Angular Projects -->
-    <ng-container *ngFor="let project of projectsData?.angularProjects">
-      <ng-container
-        *ngTemplateOutlet="projectTemplate; context: { project: project }"
-      ></ng-container>
+    <ng-container *ngIf="projectCategories.length; else noProjects">
+      <article *ngFor="let category of projectCategories">
+        <div class="title-area appear-item">
+          <h4>{{ category.label }}</h4>
+        </div>
+        <div class="portfolio-items">
+          <ng-container *ngFor="let project of projectsData?.[category.key]">
+            <ng-container
+              *ngTemplateOutlet="projectTemplate; context: { project: project }"
+            >
+            </ng-container>
+          </ng-container>
+        </div>
+      </article>
     </ng-container>
 
-    <!-- React Projects -->
-    <ng-container *ngFor="let project of projectsData?.reactProjects">
-      <ng-container
-        *ngTemplateOutlet="projectTemplate; context: { project: project }"
-      ></ng-container>
-    </ng-container>
-
-    <!-- JavaScript Projects -->
-    <ng-container *ngFor="let project of projectsData?.javascriptProjects">
-      <ng-container
-        *ngTemplateOutlet="projectTemplate; context: { project: project }"
-      ></ng-container>
-    </ng-container>
-
-    <ng-container *ngFor="let project of projectsData?.componentProjects">
-      <ng-container
-        *ngTemplateOutlet="projectTemplate; context: { project: project }"
-      ></ng-container>
-    </ng-container>
+    <ng-template #noProjects>
+      <p>No projects available to display.</p>
+    </ng-template>
   </div>
 </div>
 
 <ng-template #projectTemplate let-project="project">
-  <div class="portfolio-item">
+  <div class="portfolio-item appear-item">
     <img [src]="project.previewImages[0]" [alt]="project.name" />
     <div class="overlay">
       <h3>{{ project.name }}</h3>
@@ -41,22 +34,12 @@
           | <a [href]="project.liveDemo" target="_blank">Live Demo</a>
         </span>
       </p>
-      <ng-container
-        *ngTemplateOutlet="
-          expertiseTemple;
-          context: { expertises: project.expertise }
-        "
-      >
-      </ng-container>
+      <ul class="usedExpertise">
+        <li *ngFor="let expertise of project.expertise">
+          <img [src]="expertise.logo" alt="{{ expertise.skill }} logo" />
+          {{ expertise.skill }}
+        </li>
+      </ul>
     </div>
   </div>
-</ng-template>
-
-<ng-template #expertiseTemple let-expertises="expertises">
-  <ul class="usedExpertise">
-    <li *ngFor="let expertise of expertises">
-      <img [src]="expertise.logo" alt="{{ expertise.skill }} logo" width="20" />
-      {{ expertise.skill }}
-    </li>
-  </ul>
 </ng-template>

@@ -37,10 +37,7 @@ export interface Expertise {
 }
 
 export interface Projects {
-  angularProjects: Project[];
-  reactProjects: Project[];
-  javascriptProjects: Project[];
-  componentProjects: Project[];
+  [key: string]: Project[];
 }
 
 export interface Project {
