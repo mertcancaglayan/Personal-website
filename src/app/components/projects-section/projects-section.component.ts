@@ -9,14 +9,6 @@ import { animate, style, transition, trigger } from '@angular/animations';
   imports: [CommonModule],
   templateUrl: './projects-section.component.html',
   styleUrls: ['./projects-section.component.scss'],
-  animations: [
-    trigger('appear', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'scale(0.5)' }),
-        animate('0.3s ease-in', style({ opacity: 1, transform: 'scale(1)' })),
-      ]),
-    ]),
-  ],
 })
 export class ProjectsSectionComponent implements OnInit {
   @Input() projectsData?: Projects;
@@ -37,11 +29,6 @@ export class ProjectsSectionComponent implements OnInit {
   }
 
   formatLabel(key: string): string {
-    return key
-      .replace(/([a-z])([A-Z])/g, '$1 $2')
-      .replace(/Projects/g, ' Projects')
-      .toLowerCase()
-      .replace(/\b\w/g, (match) => match.toUpperCase())
-      .trim();
+    return key.replace(/Projects/g, ' Projects').trim();
   }
 }
