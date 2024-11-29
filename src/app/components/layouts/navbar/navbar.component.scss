@@ -1,8 +1,11 @@
 nav {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  max-width: 100%;
   border-bottom: 1px solid #fff;
-  color: #fff;
+  color: var(--font-color);
   cursor: none;
   height: 80px;
   position: fixed;
@@ -10,55 +13,60 @@ nav {
   left: 0;
   z-index: 1000;
   background-color: var(--background-color);
+  padding: 0;
 
-  .navSection {
+  .navMenu {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 1.5rem 2rem;
-    gap: 1rem;
-    border-right: 1px solid #fff;
-    font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 1.2rem;
+    width: 80%;
 
-    &:last-child {
-      border-right: none;
-    }
+    .navSection {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 1.5rem 2rem;
+      gap: 1rem;
+      border-right: 1px solid #fff;
+      font-weight: 700;
+      font-size: 1.2rem;
 
-    &#navName {
-      justify-content: center;
-      width: 30%;
-    }
+      &:last-child {
+        border-right: none;
+      }
 
-    &#navCategory {
-      width: 25%;
-    }
+      &#navCategory {
+        flex-grow: 0.75;
+      }
 
-    &#navSocials {
-      font-size: 1.5rem;
-      width: 25%;
+      &#navName {
+        justify-content: center;
+      }
 
-      a {
-        span {
-          svg {
-            width: 20px;
-            fill: #fff;
+      &#navSocials {
+        justify-content: space-around;
+        font-size: 1.5rem;
+        flex-grow: 0.3;
+
+        a {
+          span {
+            svg {
+              width: 20px;
+              fill: #fff;
+            }
           }
         }
       }
-    }
 
-    &#langs {
-      width: 20%;
+      &#langs {
+        flex-grow: 0.1;
+      }
     }
   }
 
   a {
     text-decoration: none;
-    color: #fff;
+    color: var(--font-color);
     cursor: none;
   }
 }
@@ -85,12 +93,52 @@ nav {
   }
 }
 
-@media screen and (max-width: 550px) {
+.hamburgerMenu {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  margin-right: 1rem;
+  color: var(--font-color);
+}
+
+@media screen and (max-width: 768px) {
   nav {
-    .navSection {
-      padding: 0.5rem 0.75rem;
-      gap: 0.25rem;
-      font-size: 0.7rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0;
+
+    .hamburgerMenu {
+      display: block;
+    }
+    .navMenu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: var(--background-color);
+      z-index: 1000;
+      border-top: 1px solid white;
+
+      &.open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .navSection {
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 50%;
+
+        &#navCategory {
+          width: 100%;
+        }
+      }
     }
   }
 }
