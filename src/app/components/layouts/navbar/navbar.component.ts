@@ -1,11 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
 import { RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
@@ -15,6 +16,7 @@ export class NavbarComponent {
   public top = '0px';
   public scale = 'scale(1)';
   private firstHover = false;
+  isMenuOpen: boolean = false;
 
   constructor(private languageService: LanguageService) {}
 
@@ -49,9 +51,15 @@ export class NavbarComponent {
   }
 
   scrollTo(id: string): void {
+    this.isMenuOpen = !this.isMenuOpen;
+
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

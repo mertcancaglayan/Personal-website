@@ -1,18 +1,16 @@
 .skills-container {
-  width: 100%;
+  max-width: 100%;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Kode Mono", monospace;
-  font-optical-sizing: auto;
-  min-height: 100dvh;
   justify-content: space-evenly;
-  padding: 75px 50px 50px;
-
+  padding: var(--section-padding);
+  gap: var(--item-gap);
 
   h2 {
-    color: aliceblue;
-    font-size: 35px;
+    color: var(--font-color);
+    font-size: var(--title-font-size);
   }
 
   ul {
@@ -21,8 +19,8 @@
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    width: 80%;
-    gap: 35px;
+    width: 100%;
+    gap: var(--item-gap);
 
     li.skillCard {
       display: flex;
@@ -30,13 +28,13 @@
       align-items: center;
       justify-content: space-around;
       background: rgb(34, 31, 36);
-      border-radius: 20px;
+      border-radius: var(--card-border-radius);
       padding: 10px 5px;
-      width: 320px;
+      width: calc(var(--card-width) - 100px);
       aspect-ratio: 1;
-      color: aliceblue;
+      color: var(--font-color);
       box-shadow: 0px 0px 5px #4444dd;
-      font-size: 20px;
+      font-size: cal(var(--text-font-size) + 5px);
       font-weight: 600;
       transition: 0.2s ease-in;
 
@@ -48,11 +46,30 @@
       .card-img {
         display: flex;
         align-items: center;
-        width: 180px;
+        width: 50%;
         aspect-ratio: 1;
         img {
           width: 100%;
           object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .skills-container {
+    ul {
+      li.skillCard {
+        display: flex;
+        flex-direction: column;
+        width: var(--card-width);
+        &:hover {
+          scale: 1;
+        }
+
+        .card-img {
+          width: 80%;
         }
       }
     }
