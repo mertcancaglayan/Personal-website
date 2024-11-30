@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Projects } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { CardComponent } from "../layouts/card/card.component";
 
 @Component({
   selector: 'app-projects-section',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CardComponent],
   templateUrl: './projects-section.component.html',
   styleUrls: ['./projects-section.component.scss'],
 })

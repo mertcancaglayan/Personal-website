@@ -1,0 +1,20 @@
+<ng-container *ngIf="projectData">
+  <div class="portfolio-item appear-item">
+    <img [src]="projectData.previewImages[0]" [alt]="projectData.name" />
+    <div class="overlay">
+      <h3>{{ projectData.name }}</h3>
+      <p>
+        <a [href]="projectData.repo" target="_blank">View Repo</a>
+        <span *ngIf="projectData.liveDemo">
+          | <a [href]="projectData.liveDemo" target="_blank">Live Demo</a>
+        </span>
+      </p>
+      <ul class="usedExpertise">
+        <li *ngFor="let expertise of projectData.expertise">
+          <img [src]="expertise.logo" alt="{{ expertise.skill }} logo" />
+          <span>{{ expertise.skill }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
