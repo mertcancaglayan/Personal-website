@@ -1,44 +1,18 @@
-<nav #navbar (mousemove)="onMouseMove($event)" (mouseout)="onMouseOut()">
+<nav>
   <div class="navSection" id="navName">
-    <h2
-      class="navItem"
-      (mouseover)="onItemHover(true)"
-      (mouseout)="onItemHover(false)"
-    >
-      MCÇ
-    </h2>
+    <h2 class="navItem">MCÇ</h2>
   </div>
   <div class="hamburgerMenu" (click)="toggleMenu()">☰</div>
   <div class="navMenu" [class.open]="isMenuOpen">
     <div class="navSection" id="navCategory">
-      <a
-        class="navItem"
-        (click)="scrollTo('banner')"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
-        >ABOUT</a
-      >
-      <a
-        class="navItem"
-        (click)="scrollTo('skills')"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
-        >SKILLS</a
-      >
-      <a
-        class="navItem"
-        (click)="scrollTo('projects')"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
-        >PROJECTS</a
-      >
+      <a class="navItem" (click)="scrollTo('banner')">ABOUT</a>
+      <a class="navItem" (click)="scrollTo('skills')">SKILLS</a>
+      <a class="navItem" (click)="scrollTo('projects')">PROJECTS</a>
     </div>
     <div class="navSection" id="navSocials">
       <a
         href="https://www.linkedin.com/in/mert-can-caglayan/"
         class="navItem"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
         target="_blank"
       >
         <span class="navbarIcon">
@@ -53,8 +27,6 @@
       <a
         href="https://www.instagram.com/m.cancaglayan/"
         class="navItem"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
         target="_blank"
       >
         <span class="navbarIcon">
@@ -69,8 +41,6 @@
       <a
         href="https://github.com/mertcancaglayan"
         class="navItem"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
         target="_blank"
       >
         <span class="navbarIcon">
@@ -84,31 +54,8 @@
       </a>
     </div>
     <div class="navSection" id="langs">
-      <div
-        class="navItem"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
-        (click)="changeLanguage('turkish')"
-      >
-        TR
-      </div>
-      <div
-        class="navItem"
-        (mouseover)="onItemHover(true)"
-        (mouseout)="onItemHover(false)"
-        (click)="changeLanguage('english')"
-      >
-        EN
-      </div>
+      <div class="navItem" (click)="changeLanguage('turkish')">TR</div>
+      <div class="navItem" (click)="changeLanguage('english')">EN</div>
     </div>
   </div>
 </nav>
-
-<div
-  id="circle"
-  class="circle"
-  [style.display]="show ? 'flex' : 'none'"
-  [style.left]="left"
-  [style.top]="top"
-  [style.transform]="scale"
-></div>
