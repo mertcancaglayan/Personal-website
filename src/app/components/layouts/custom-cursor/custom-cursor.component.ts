@@ -32,16 +32,14 @@ export class CustomCursorComponent {
   ];
 
   public colors = [
-    '#4444dd', // original color
-    '#3b3bd1', // a little darker
-    '#3232c5', // darker
-    '#2929b9', // darker
-    '#2020ad', // even darker
-    '#1a1aa1', // dark violet-blue
-    '#151594', // darker violet-blue
     '#0f0f88', // even darker violet-blue
-    '#0a0a7b', // more intense dark violet-blue
-    '#05056e', // darkest shade
+    '#151594', // darker violet-blue
+    '#1a1aa1', // dark violet-blue
+    '#2020ad', // even darker
+    '#2929b9', // darker
+    '#3232c5', // darker
+    '#3b3bd1', // a little darker
+    '#4444dd', // original color
   ];
 
   @ViewChildren('circle') circleElements!: QueryList<ElementRef>;
@@ -93,8 +91,8 @@ export class CustomCursorComponent {
       this.circles[index].backgroundColor = this.colors[index];
 
       const nextCircle = this.circles[index + 1] || this.circles[0];
-      x += (nextCircle.x - x) * 0.65;
-      y += (nextCircle.y - y) * 0.65;
+      x += (nextCircle.x - x) * 0.7;
+      y += (nextCircle.y - y) * 0.7;
     });
 
     this.animationFrame = requestAnimationFrame(() => this.animateCircles());
