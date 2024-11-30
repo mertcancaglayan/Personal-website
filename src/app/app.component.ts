@@ -13,6 +13,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { loadData } from './states/profile.actions';
 import { CommonModule } from '@angular/common';
+import { CustomCursorComponent } from "./components/layouts/custom-cursor/custom-cursor.component";
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,8 @@ import { CommonModule } from '@angular/common';
     SkillsSectionComponent,
     ProjectsSectionComponent,
     CommonModule,
-  ],
+    CustomCursorComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

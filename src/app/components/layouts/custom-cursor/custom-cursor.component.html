@@ -1,0 +1,7 @@
+<div
+  *ngFor="let circle of circles; let i = index"
+  #circle
+  class="circle"
+  [style.backgroundColor]="circle.backgroundColor"
+  [style.opacity]="opacity"
+></div>
