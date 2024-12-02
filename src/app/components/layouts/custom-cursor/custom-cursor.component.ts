@@ -3,9 +3,11 @@ import {
   Component,
   ElementRef,
   HostListener,
+  OnInit,
   QueryList,
   ViewChildren,
 } from '@angular/core';
+import { Circle } from '../../../models/Circle.model';
 
 @Component({
   selector: 'app-custom-cursor',
@@ -14,22 +16,20 @@ import {
   templateUrl: './custom-cursor.component.html',
   styleUrls: ['./custom-cursor.component.scss'],
 })
-export class CustomCursorComponent {
+export class CustomCursorComponent implements OnInit {
+  circles: Circle[] = [];
   opacity: number = 1;
   public isPointer: boolean = false;
   public coords = { x: 0, y: 0 };
-  public circles = [
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-    { backgroundColor: '', scale: 1, x: 0, y: 0 },
-  ];
+
+  ngOnInit(): void {
+    this.circles = Array.from({ length: 10 }, () => ({
+      backgroundColor: '',
+      scale: 1,
+      x: 0,
+      y: 0,
+    }));
+  }
 
   public colors = [
     '#0f0f88', // even darker violet-blue
@@ -61,9 +61,24 @@ export class CustomCursorComponent {
   @HostListener('document:mouseover', ['$event'])
   onMouseOver(event: MouseEvent): void {
     const target = event.target as HTMLElement;
-    const allowedTags = ['A', 'H1', 'H2', 'H3', 'H4', 'H5', 'P', 'SPAN'];
+    const allowedTags = [
+      'A',
+      'H1',
+      'H2',
+      'H3',
+      'H4',
+      'H5',
+      'P',
+      'SPAN',
+      'PATH',
+      'SVG',
+      'BUTTON',
+    ];
+    const allowedClasses = ['navItem', 'navbarIcon'];
 
-    this.isPointer = target && allowedTags.includes(target.tagName);
+    this.isPointer =
+      (target && allowedTags.includes(target.tagName)) ||
+      allowedClasses.includes(target.className);
   }
 
   updateCursorStyle() {

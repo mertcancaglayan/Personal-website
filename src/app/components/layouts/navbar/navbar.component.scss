@@ -14,8 +14,14 @@ nav {
   background-color: var(--background-color);
   padding: 0;
 
+  button {
+    background-color: transparent;
+  }
+
   .navItem {
     cursor: pointer;
+
+  
   }
 
   .navMenu {
