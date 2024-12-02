@@ -8,6 +8,8 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Circle } from '../../../models/Circle.model';
+import { colors } from '../../../states/colors';
+import { Scroll } from '@angular/router';
 
 @Component({
   selector: 'app-custom-cursor',
@@ -30,17 +32,6 @@ export class CustomCursorComponent implements OnInit {
       y: 0,
     }));
   }
-
-  public colors = [
-    '#0f0f88', // even darker violet-blue
-    '#151594', // darker violet-blue
-    '#1a1aa1', // dark violet-blue
-    '#2020ad', // even darker
-    '#2929b9', // darker
-    '#3232c5', // darker
-    '#3b3bd1', // a little darker
-    '#4444dd', // original color
-  ];
 
   @ViewChildren('circle') circleElements!: QueryList<ElementRef>;
 
@@ -74,7 +65,7 @@ export class CustomCursorComponent implements OnInit {
       'SVG',
       'BUTTON',
     ];
-    const allowedClasses = ['navItem', 'navbarIcon'];
+    const allowedClasses = ['navItem', 'navbarIcon', 'navSocials'];
 
     this.isPointer =
       (target && allowedTags.includes(target.tagName)) ||
@@ -103,7 +94,7 @@ export class CustomCursorComponent implements OnInit {
       this.circles[index].scale = (this.circles.length - index) / 8;
       this.circles[index].x = x;
       this.circles[index].y = y;
-      this.circles[index].backgroundColor = this.colors[index];
+      this.circles[index].backgroundColor = colors[index];
 
       const nextCircle = this.circles[index + 1] || this.circles[0];
       x += (nextCircle.x - x) * 0.7;
