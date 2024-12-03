@@ -14,6 +14,7 @@ import { Store } from '@ngrx/store';
 import { loadData } from './states/profile.actions';
 import { CommonModule } from '@angular/common';
 import { CustomCursorComponent } from "./components/layouts/custom-cursor/custom-cursor.component";
+import { PopoverComponent } from "./components/layouts/popover/popover.component";
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ import { CustomCursorComponent } from "./components/layouts/custom-cursor/custom
     SkillsSectionComponent,
     ProjectsSectionComponent,
     CommonModule,
-    CustomCursorComponent
+    CustomCursorComponent,
+    PopoverComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

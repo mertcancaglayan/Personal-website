@@ -1,0 +1,112 @@
+<article class="popover">
+  <div class="top-area">
+    <div class="img-area">
+      <img
+        src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+        alt=""
+      />
+    </div>
+    <div class="details-area">
+      <div class="title-area">
+        <h4>Movie App</h4>
+      </div>
+      <div class="text-area">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ad et
+          voluptatem distinctio alias laborum, illo quam fuga hic exercitationem
+          quas repellendus velit dignissimos commodi ab deserunt tempore
+          assumenda sapiente.
+        </p>
+      </div>
+      <div class="skills-area">
+        <ul>
+          <li>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
+              alt=""
+            />
+            <span>JavaScript</span>
+          </li>
+          <li>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
+              alt=""
+            />
+            <span>JavaScript</span>
+          </li>
+          <li>
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
+              alt=""
+            />
+            <span>JavaScript</span>
+          </li>
+        </ul>
+      </div>
+      <div class="button-area">
+        <ul>
+          <li><button>View Repo</button></li>
+
+          <li><button>Live Demo</button></li>
+
+          <li>
+            <button (click)="showImages()">Preview Images</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isModalVisible" class="preview-area">
+    <span class="close" (click)="showImages()">&times;</span>
+    <div class="slider-area snaps-inline">
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/6f6453f6-d742-430a-8e98-b330a029e7ec"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/28fc7f97-2a62-4d23-bfd5-90e8cb1ce7b6"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/d9ff1dec-cdfa-405d-83aa-1c1bfc844366"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+          alt=""
+        />
+      </div>
+      <div class="preview-item">
+        <img
+          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+</article>
