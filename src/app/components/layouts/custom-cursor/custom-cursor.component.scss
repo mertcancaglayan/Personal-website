@@ -9,6 +9,7 @@
   will-change: transform, left, top;
   z-index: 1001;
   transition: opacity 0.3s ease;
+  background-color: rgb(204, 203, 203);
   background-color: var(--shadow-color);
 
   @media screen and (max-width: 550px) {

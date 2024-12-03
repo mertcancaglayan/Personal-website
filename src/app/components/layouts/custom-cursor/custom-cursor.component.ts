@@ -74,7 +74,7 @@ export class CustomCursorComponent implements OnInit {
 
   updateCursorStyle() {
     if (this.isPointer) {
-      this.opacity = 0.05;
+      this.opacity = 0;
     } else {
       this.opacity = 1;
     }
@@ -97,8 +97,8 @@ export class CustomCursorComponent implements OnInit {
       this.circles[index].backgroundColor = colors[index];
 
       const nextCircle = this.circles[index + 1] || this.circles[0];
-      x += (nextCircle.x - x) * 0.7;
-      y += (nextCircle.y - y) * 0.7;
+      x += (nextCircle.x - x) * 0.6;
+      y += (nextCircle.y - y) * 0.6;
     });
 
     this.animationFrame = requestAnimationFrame(() => this.animateCircles());
