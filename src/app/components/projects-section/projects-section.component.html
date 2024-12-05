@@ -8,7 +8,7 @@
         </div>
         <div class="portfolio-items">
           <ng-container *ngFor="let project of projectsData?.[category.key]">
-            <app-card [projectData]="project"></app-card>
+            <app-card [projectData]="project" (click)="openPopover(project)"></app-card>
           </ng-container>
         </div>
       </article>
@@ -19,3 +19,10 @@
     </ng-template>
   </div>
 </div>
+
+<app-popover
+  *ngIf="isPopoverVisible"
+  [projectData]="selectedProject"
+  (close)="closePopover()"
+>
+</app-popover>

@@ -1,53 +1,39 @@
-<article class="popover">
+<article class="popover" *ngIf="projectData">
+  <span class="close-popover close-btn" (click)="handleClose()">&times;</span>
   <div class="top-area">
     <div class="img-area">
-      <img
-        src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-        alt=""
-      />
+      <img [src]="projectData.previewImages[0]" [alt]="projectData.name" />
     </div>
     <div class="details-area">
       <div class="title-area">
-        <h4>Movie App</h4>
+        <h4>{{ projectData.name }}</h4>
       </div>
       <div class="text-area">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ad et
-          voluptatem distinctio alias laborum, illo quam fuga hic exercitationem
-          quas repellendus velit dignissimos commodi ab deserunt tempore
-          assumenda sapiente.
+          {{ projectData.projectDetails.english }}
         </p>
       </div>
       <div class="skills-area">
         <ul>
-          <li>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
-              alt=""
-            />
-            <span>JavaScript</span>
-          </li>
-          <li>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
-              alt=""
-            />
-            <span>JavaScript</span>
-          </li>
-          <li>
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/CSS3_logo.svg/512px-CSS3_logo.svg.png?20210705212817"
-              alt=""
-            />
-            <span>JavaScript</span>
+          <li *ngFor="let expertise of projectData.expertise">
+            <img [src]="expertise.logo" alt="{{ expertise.skill }} logo" />
+            <span>{{ expertise.skill }}</span>
           </li>
         </ul>
       </div>
       <div class="button-area">
         <ul>
-          <li><button>View Repo</button></li>
+          <li *ngIf="projectData.repo">
+            <a [href]="projectData.repo" target="_blank"
+              ><button>View Repo</button></a
+            >
+          </li>
 
-          <li><button>Live Demo</button></li>
+          <li *ngIf="projectData.liveDemo">
+            <a [href]="projectData.liveDemo" target="_blank"
+              ><button>Live Demo</button></a
+            >
+          </li>
 
           <li>
             <button (click)="showImages()">Preview Images</button>
@@ -57,7 +43,7 @@
     </div>
   </div>
   <div *ngIf="isModalVisible" class="preview-area">
-    <span class="close" (click)="showImages()">&times;</span>
+    <span class="close-preview close-btn" (click)="showImages()">&times;</span>
     <div class="slider-area snaps-inline">
       <div class="preview-item">
         <img

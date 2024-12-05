@@ -1,18 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Projects } from '../../models/ProfileData.model';
+import { Project, Projects } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { CardComponent } from "../layouts/card/card.component";
+import { CardComponent } from '../layouts/card/card.component';
+import { PopoverComponent } from '../layouts/popover/popover.component';
 
 @Component({
   selector: 'app-projects-section',
   standalone: true,
-  imports: [CommonModule, CardComponent],
+  imports: [CommonModule, CardComponent, PopoverComponent],
   templateUrl: './projects-section.component.html',
   styleUrls: ['./projects-section.component.scss'],
 })
 export class ProjectsSectionComponent implements OnInit {
   @Input() projectsData?: Projects;
+  selectedProject?: Project;
+  isPopoverVisible = false;
 
   projectCategories: { key: string; label: string }[] = [];
 
@@ -31,5 +34,15 @@ export class ProjectsSectionComponent implements OnInit {
 
   formatLabel(key: string): string {
     return key.replace(/Projects/g, ' Projects').trim();
+  }
+
+  openPopover(project: Project) {
+    this.selectedProject = project;
+    this.isPopoverVisible = true;
+  }
+
+  closePopover() {
+    this.isPopoverVisible = false;
+    this.selectedProject = undefined;
   }
 }

@@ -3,14 +3,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 150px;
-  width: 80%;
-  height: 70dvh;
-  max-height: 70dvh;
+  justify-content: center;
+  width: 90%;
   padding: 10px 0;
   gap: var(--item-gap);
   color: var(--font-color);
   font-size: var(--text-font-size);
+  height: 80%;
+
+  .close-popover {
+    align-self: self-end;
+  }
 
   .top-area {
     display: flex;
@@ -104,26 +107,10 @@
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.932);
 
-    .close {
+    .close-preview {
       position: absolute;
       top: 10px;
       right: 20px;
-      font-size: 48px;
-      font-weight: bold;
-      color: #333;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.3s ease, color 0.3s ease;
-    }
-
-    .close:hover {
-      color: #ff0000;
-      transform: scale(1.2);
-    }
-
-    .close:focus {
-      outline: none;
     }
 
     .snaps-inline {
@@ -150,12 +137,11 @@
       height: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: start;
       align-items: center;
       gap: var(--item-gap);
 
       .preview-item {
-        left: calc((var(--card-width) - 100px) / 2);
         position: relative;
         width: calc(var(--card-width) - 100px);
         min-width: calc(var(--card-width) - 100px);
@@ -174,6 +160,97 @@
         img {
           width: 100%;
           object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .popover {
+    .top-area {
+      .details-area {
+        justify-content: start;
+      }
+    }
+
+    .preview-area {
+      .slider-area {
+        .preview-item {
+          width: calc(var(--card-width) - 100px);
+          min-width: calc(var(--card-width) - 100px);
+        }
+      }
+    }
+  }
+}
+
+.close-btn {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    color: var(--font-color);
+    transform: scale(1.2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .popover {
+    width: 95%;
+
+    .top-area {
+      .details-area {
+        gap: calc(var(--item-gap) - 10px);
+        font-size: calc(var(--text-font-size) - 5px);
+
+        .skills-area {
+          ul {
+            font-size: calc(var(--text-font-size) - 5px);
+            li {
+              img {
+                width: 20px;
+              }
+            }
+          }
+        }
+
+        .button-area {
+          ul {
+            gap: calc(var(--item-gap) - 10px);
+            li {
+              button {
+                padding: 5px 10px;
+                font-size: calc(var(--text-font-size) - 7px);
+                color: var(--font-color);
+                max-width: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .popover {
+    .preview-area {
+      .slider-area {
+        gap: calc(var(--item-gap) - 5px);
+
+        .preview-item {
+          width: calc(var(--card-width) + 50px);
+          min-width: calc(var(--card-width) + 50px);
         }
       }
     }
