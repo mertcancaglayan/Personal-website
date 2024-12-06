@@ -1,18 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Project } from '../../../models/ProfileData.model';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @Component({
   selector: 'app-popover',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, CarouselComponent],
   templateUrl: './popover.component.html',
   styleUrl: './popover.component.scss',
 })
-export class PopoverComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(this.projectData);
-  }
+export class PopoverComponent {
   @Input() projectData?: Project;
   @Output() close = new EventEmitter<void>();
 

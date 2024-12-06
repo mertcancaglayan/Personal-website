@@ -44,55 +44,6 @@
   </div>
   <div *ngIf="isModalVisible" class="preview-area">
     <span class="close-preview close-btn" (click)="showImages()">&times;</span>
-    <div class="slider-area snaps-inline">
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/6f6453f6-d742-430a-8e98-b330a029e7ec"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/28fc7f97-2a62-4d23-bfd5-90e8cb1ce7b6"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/d9ff1dec-cdfa-405d-83aa-1c1bfc844366"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-          alt=""
-        />
-      </div>
-      <div class="preview-item">
-        <img
-          src="https://github.com/user-attachments/assets/5bc68eac-74d0-4ad0-b31d-6e9661b5f1d6"
-          alt=""
-        />
-      </div>
-    </div>
+    <app-carousel [projectData]="projectData"></app-carousel>
   </div>
 </article>
