@@ -46,4 +46,10 @@ export interface Project {
   liveDemo?: string;
   previewImages: string[];
   expertise: Expertise[];
+  projectDetails: ProjectDetails;
+}
+
+export interface ProjectDetails {
+  english: string;
+  turkish: string;
 }

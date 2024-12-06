@@ -25,6 +25,7 @@ html {
 }
 
 body {
+  position: relative;
   background-color: var(--background-color);
   display: flex;
   flex-direction: column;

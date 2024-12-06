@@ -26,7 +26,6 @@ import { PopoverComponent } from "./components/layouts/popover/popover.component
     ProjectsSectionComponent,
     CommonModule,
     CustomCursorComponent,
-    PopoverComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
