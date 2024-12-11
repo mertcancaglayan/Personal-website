@@ -1,3 +1,9 @@
+app-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 .popover {
   position: relative;
   display: flex;
@@ -112,8 +118,6 @@
       top: 10px;
       right: 20px;
     }
-
-
   }
 }
 
