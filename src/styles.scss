@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap");
 
 :root {
-  --background-color: #111111;
+  --background-gradient: linear-gradient(to right, #18282e, #0a1c22, #0f2027);
+  --background-color: var(--background-gradient);
   --card-width: 384px;
   --item-gap: 20px;
   --title-font-size: 35px;
@@ -9,7 +10,7 @@
   --text-font-size: 14px;
   --section-padding: 75px 50px 50px;
   --card-border-radius: 20px;
-  --shadow-color: #4444dd;
+  --shadow-color: #c4c4c4;
 }
 
 html {
@@ -26,7 +27,7 @@ html {
 
 body {
   position: relative;
-  background-color: var(--background-color);
+  background: var(--background-color);
   display: flex;
   flex-direction: column;
   margin: 0;

@@ -8,8 +8,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { Circle } from '../../../models/Circle.model';
-import { colors } from '../../../states/colors';
-import { Scroll } from '@angular/router';
 
 @Component({
   selector: 'app-custom-cursor',
@@ -61,11 +59,13 @@ export class CustomCursorComponent implements OnInit {
       'H5',
       'P',
       'SPAN',
-      'PATH',
-      'SVG',
+      'path',
+      'svg',
       'BUTTON',
+      'LI',
+      'IMG',
     ];
-    const allowedClasses = ['navItem', 'navbarIcon', 'navSocials'];
+    const allowedClasses = ['navItem', 'navbarIcon', 'navSocials', 'skillCard'];
 
     this.isPointer =
       (target && allowedTags.includes(target.tagName)) ||
@@ -94,7 +94,6 @@ export class CustomCursorComponent implements OnInit {
       this.circles[index].scale = (this.circles.length - index) / 8;
       this.circles[index].x = x;
       this.circles[index].y = y;
-      this.circles[index].backgroundColor = colors[index];
 
       const nextCircle = this.circles[index + 1] || this.circles[0];
       x += (nextCircle.x - x) * 0.6;
