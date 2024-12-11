@@ -2,10 +2,8 @@
   <div
     class="preview-item"
     *ngFor="let previewImage of projectData?.previewImages; let i = index"
-    [ngClass]="{ active: clickedIndex === i }"
-    (click)="expandItem(i)"
   >
-    <img [src]="previewImage" [alt]="'Preview ' + i" />
+    <img [src]="previewImage" [alt]="'Preview ' + (i + 1)" />
   </div>
 </div>
 <div class="slider-buttons">
