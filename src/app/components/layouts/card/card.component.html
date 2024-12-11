@@ -1,6 +1,10 @@
 <ng-container *ngIf="projectData">
   <div class="portfolio-item appear-item">
-    <img [src]="projectData.previewImages[0]" [alt]="projectData.name" />
+    <img
+      [src]="projectData.previewImages[0]"
+      [alt]="projectData.name"
+      loading="lazy"
+    />
     <div class="overlay">
       <h3>{{ projectData.name }}</h3>
       <p>
