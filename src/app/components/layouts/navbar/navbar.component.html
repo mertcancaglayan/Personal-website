@@ -5,9 +5,9 @@
   <div class="hamburgerMenu" (click)="toggleMenu()">☰</div>
   <div class="navMenu" [class.open]="isMenuOpen">
     <div class="navSection" id="navCategory">
-      <a class="navItem" (click)="scrollTo('banner')">ABOUT</a>
-      <a class="navItem" (click)="scrollTo('skills')">SKILLS</a>
-      <a class="navItem" (click)="scrollTo('projects')">PROJECTS</a>
+      <a class="navItem" (click)="scrollTo('banner')">{{ navbarLabels[selectedLanguage].about }}</a>
+      <a class="navItem" (click)="scrollTo('skills')">{{ navbarLabels[selectedLanguage].skills }}</a>
+      <a class="navItem" (click)="scrollTo('projects')">{{ navbarLabels[selectedLanguage].projects }}</a>
     </div>
     <div class="navSection" id="navSocials">
       <a

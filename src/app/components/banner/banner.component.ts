@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { loadData } from '../../states/profile.actions';
-import { ProfileData, PersonalInfo } from '../../models/ProfileData.model';
+import { PersonalInfo } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
 
 @Component({
