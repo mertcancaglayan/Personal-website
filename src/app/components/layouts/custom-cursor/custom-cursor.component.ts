@@ -65,7 +65,13 @@ export class CustomCursorComponent implements OnInit {
       'LI',
       'IMG',
     ];
-    const allowedClasses = ['navItem', 'navbarIcon', 'navSocials', 'skillCard'];
+    const allowedClasses = [
+      'navItem',
+      'navbarIcon',
+      'navSocials',
+      'skillCard',
+      'scrollTop',
+    ];
 
     this.isPointer =
       (target && allowedTags.includes(target.tagName)) ||

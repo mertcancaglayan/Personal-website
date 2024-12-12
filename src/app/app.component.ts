@@ -15,6 +15,7 @@ import { loadData } from './states/profile.actions';
 import { CommonModule } from '@angular/common';
 import { CustomCursorComponent } from "./components/layouts/custom-cursor/custom-cursor.component";
 import { PopoverComponent } from "./components/layouts/popover/popover.component";
+import { ScrollTopBtnComponent } from "./components/layouts/scroll-top-btn/scroll-top-btn.component";
 
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ import { PopoverComponent } from "./components/layouts/popover/popover.component
     ProjectsSectionComponent,
     CommonModule,
     CustomCursorComponent,
+    ScrollTopBtnComponent
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
