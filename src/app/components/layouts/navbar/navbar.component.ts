@@ -1,6 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
-import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NavbarElementsMap } from '../../../models/navbar-elements.model';
 import { navbarElements } from '../../../states/navbar.state';
@@ -20,17 +19,17 @@ export class NavbarComponent implements OnInit {
   constructor(private languageService: LanguageService) {}
 
   ngOnInit(): void {
-    this.getLanguage();
+    this.languageService.language$.subscribe((lang) => {
+      this.selectedLanguage = lang;
+    });
   }
 
-  changeLanguage(lang: string): void {
+  changeLanguage(lang: 'english' | 'turkish'): void {
     this.languageService.setLanguage(lang);
-    window.location.reload();
   }
 
   scrollTo(id: string): void {
-    this.isMenuOpen = !this.isMenuOpen;
-
+    this.isMenuOpen = false;
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -39,14 +38,5 @@ export class NavbarComponent implements OnInit {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
-  }
-
-  getLanguage(): void {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const lang = localStorage.getItem('lang1');
-      this.selectedLanguage = lang === 'turkish' ? 'turkish' : 'english';
-    } else {
-      this.selectedLanguage = 'english';
-    }
   }
 }

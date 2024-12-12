@@ -2,15 +2,18 @@
   <span class="close-popover close-btn" (click)="handleClose()">&times;</span>
   <div class="top-area">
     <div class="img-area">
-      <img [src]="projectData.previewImages[0]" [alt]="projectData.name" />
+      <img
+        [src]="projectData.previewImages[0]"
+        [alt]="projectData.name[selectedLanguage]"
+      />
     </div>
     <div class="details-area">
       <div class="title-area">
-        <h4>{{ projectData.name }}</h4>
+        <h4>{{ projectData.name[selectedLanguage] }}</h4>
       </div>
       <div class="text-area">
         <p>
-          {{ projectData.projectDetails.english }}
+          {{ projectData.projectDetails[selectedLanguage] }}
         </p>
       </div>
       <div class="skills-area">
@@ -25,18 +28,32 @@
         <ul>
           <li *ngIf="projectData.repo">
             <a [href]="projectData.repo" target="_blank"
-              ><button>View Repo</button></a
+              ><button>
+                {{
+                  selectedLanguage === "english" ? "View Repo" : "Repoya Git"
+                }}
+              </button></a
             >
           </li>
 
           <li *ngIf="projectData.liveDemo">
-            <a [href]="projectData.liveDemo" target="_blank"
-              ><button>Live Demo</button></a
-            >
+            <a [href]="projectData.liveDemo" target="_blank">
+              <button>
+                {{
+                  selectedLanguage === "english" ? "Live Demo" : "Canlı Örnek"
+                }}
+              </button>
+            </a>
           </li>
 
           <li>
-            <button (click)="showImages()">Preview Images</button>
+            <button (click)="showImages()">
+              {{
+                selectedLanguage === "english"
+                  ? "Preview Images"
+                  : "Önizleme Resimleri"
+              }}
+            </button>
           </li>
         </ul>
       </div>

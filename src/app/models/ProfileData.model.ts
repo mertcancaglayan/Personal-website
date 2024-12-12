@@ -41,7 +41,10 @@ export interface Projects {
 }
 
 export interface Project {
-  name: string;
+  name: {
+    english: string;
+    turkish: string;
+  };
   repo: string;
   liveDemo?: string;
   previewImages: string[];

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PersonalInfo } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-banner',
@@ -11,15 +12,13 @@ import { CommonModule } from '@angular/common';
 })
 export class BannerComponent implements OnInit {
   @Input() personalInfo?: PersonalInfo;
-
   selectedLanguage: 'english' | 'turkish' = 'english';
 
-  ngOnInit(): void {
-    this.getLanguage();
-  }
+  constructor(private languageService: LanguageService) {}
 
-  getLanguage(): void {
-    const lang = localStorage.getItem('lang1');
-    this.selectedLanguage = lang === 'turkish' ? 'turkish' : 'english';
+  ngOnInit(): void {
+    this.languageService.language$.subscribe((lang) => {
+      this.selectedLanguage = lang;
+    });
   }
 }

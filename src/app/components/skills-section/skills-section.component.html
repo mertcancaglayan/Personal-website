@@ -1,5 +1,7 @@
 <div class="skills-container">
-  <h2 class="appear-item">Skills</h2>
+  <h2 class="appear-item">
+    {{ navbarLabels[selectedLanguage].skills }}
+  </h2>
   <ul class="skillCards">
     <li class="skillCard appear-item" *ngFor="let skill of skills">
       <div class="card-img">

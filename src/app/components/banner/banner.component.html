@@ -11,6 +11,8 @@
       {{ personalInfo.about[selectedLanguage].article }}
     </p>
 
-    <button class="contact-button">Contact Me</button>
+    <button class="contact-button">
+      {{ selectedLanguage === "english" ? "Contact Me" : "İletişim" }}
+    </button>
   </div>
 </div>
