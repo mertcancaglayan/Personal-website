@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Project } from '../../../models/ProfileData.model';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-card',
@@ -9,6 +10,15 @@ import { Project } from '../../../models/ProfileData.model';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() projectData?: Project;
+  selectedLanguage: 'english' | 'turkish' = 'english';
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit(): void {
+    this.languageService.language$.subscribe((lang) => {
+      this.selectedLanguage = lang;
+    });
+  }
 }

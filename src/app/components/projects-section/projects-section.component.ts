@@ -3,6 +3,9 @@ import { Project, Projects } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
 import { CardComponent } from '../layouts/card/card.component';
 import { PopoverComponent } from '../layouts/popover/popover.component';
+import { navbarElements } from '../../states/navbar.state';
+import { NavbarElementsMap } from '../../models/navbar-elements.model';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-projects-section',
@@ -14,19 +17,27 @@ import { PopoverComponent } from '../layouts/popover/popover.component';
 export class ProjectsSectionComponent implements OnInit, OnDestroy {
   @Input() projectsData?: Projects;
   selectedProject?: Project;
+  selectedLanguage: 'english' | 'turkish' = 'english';
   isPopoverVisible: boolean = false;
+  navbarLabels: NavbarElementsMap = navbarElements;
 
   projectCategories: { key: string; label: string }[] = [];
 
   private wheelListener?: () => void;
   private touchMoveListener?: () => void;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(
+    private renderer: Renderer2,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {
     if (this.projectsData) {
       this.projectCategories = this.generateCategories(this.projectsData);
     }
+    this.languageService.language$.subscribe((lang) => {
+      this.selectedLanguage = lang;
+    });
   }
 
   disableScroll() {

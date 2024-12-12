@@ -2,15 +2,19 @@
   <div class="portfolio-item appear-item">
     <img
       [src]="projectData.previewImages[0]"
-      [alt]="projectData.name"
-      loading="lazy"
+      [alt]="projectData.name[selectedLanguage]"
     />
     <div class="overlay">
-      <h3>{{ projectData.name }}</h3>
+      <h3>{{ projectData.name[selectedLanguage] }}</h3>
       <p>
-        <a [href]="projectData.repo" target="_blank">View Repo</a>
+        <a [href]="projectData.repo" target="_blank">{{
+          selectedLanguage === "english" ? "View Repo" : "Repoya Git"
+        }}</a>
         <span *ngIf="projectData.liveDemo">
-          | <a [href]="projectData.liveDemo" target="_blank">Live Demo</a>
+          |
+          <a [href]="projectData.liveDemo" target="_blank">{{
+            selectedLanguage === "english" ? "Live Demo" : "Canlı Örnek"
+          }}</a>
         </span>
       </p>
       <ul class="usedExpertise">

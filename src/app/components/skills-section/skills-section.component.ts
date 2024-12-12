@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Expertise, ProfileData } from '../../models/ProfileData.model';
+import { Expertise } from '../../models/ProfileData.model';
 import { CommonModule } from '@angular/common';
-import { loadData } from '../../states/profile.actions';
+import { LanguageService } from '../../services/language.service';
+import { NavbarElementsMap } from '../../models/navbar-elements.model';
+import { navbarElements } from '../../states/navbar.state';
 
 @Component({
   selector: 'app-skills-section',
@@ -14,6 +14,15 @@ import { loadData } from '../../states/profile.actions';
 })
 export class SkillsSectionComponent implements OnInit {
   @Input() skills?: Expertise[];
+  selectedLanguage: 'english' | 'turkish' = 'english';
+  navbarLabels: NavbarElementsMap = navbarElements;
 
-  ngOnInit(): void {}
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit(): void {
+    this.languageService.language$.subscribe((lang) => {
+      this.selectedLanguage = lang;
+    });
+  }
 }

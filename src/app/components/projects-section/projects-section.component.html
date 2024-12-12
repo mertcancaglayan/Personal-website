@@ -1,5 +1,7 @@
 <div class="projects-section-container">
-  <h1 class="appear-item">Portfolio</h1>
+  <h1 class="appear-item">
+    {{ navbarLabels[selectedLanguage].projects }}
+  </h1>
   <div class="portfolio-grid">
     <ng-container *ngIf="projectCategories.length; else noProjects">
       <article *ngFor="let category of projectCategories">
@@ -8,14 +10,23 @@
         </div>
         <div class="portfolio-items">
           <ng-container *ngFor="let project of projectsData?.[category.key]">
-            <app-card [projectData]="project" (click)="openPopover(project)"></app-card>
+            <app-card
+              [projectData]="project"
+              (click)="openPopover(project)"
+            ></app-card>
           </ng-container>
         </div>
       </article>
     </ng-container>
 
     <ng-template #noProjects>
-      <p>No projects available to display.</p>
+      <p>
+        {{
+          selectedLanguage === "english"
+            ? "No projects available to display."
+            : "Gösterilecek proje yok."
+        }}
+      </p>
     </ng-template>
   </div>
 </div>
