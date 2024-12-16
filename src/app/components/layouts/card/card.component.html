@@ -1,9 +1,11 @@
 <ng-container *ngIf="projectData">
   <div class="portfolio-item appear-item">
-    <img
-      [src]="projectData.previewImages[0]"
-      [alt]="projectData.name[selectedLanguage]"
-    />
+    <div class="image-area">
+      <img
+        [src]="projectData.previewImages[0]"
+        [alt]="projectData.name[selectedLanguage]"
+      />
+    </div>
     <div class="overlay">
       <h3>{{ projectData.name[selectedLanguage] }}</h3>
       <p>
