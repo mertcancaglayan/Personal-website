@@ -1,14 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { PersonalInfo, ProfileData } from '../models/ProfileData.model';
+import { ProfileData } from '../models/ProfileData.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl =
-    'https://6734ad18a042ab85d11b2e93.mockapi.io/api/v1/personalPage';
+  private apiUrl = '';
 
   constructor(private http: HttpClient) {}
 
